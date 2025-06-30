@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer with Us - [NGO Name]</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #2c3e50; /* Dark blue */
+            color: white;
+            padding: 1.2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 25px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.15em;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        nav ul li a:hover {
+            color: #27ae60; /* Green */
+            transform: translateY(-2px);
+        }
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+        .volunteer-intro {
+            font-size: 1.15em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #555;
+        }
+        .volunteer-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #444;
+            font-size: 1.05em;
+        }
+        .volunteer-form input[type="text"],
+        .volunteer-form input[type="email"],
+        .volunteer-form input[type="tel"],
+        .volunteer-form textarea {
+            width: calc(100% - 24px); /* Account for padding and border */
+            padding: 12px;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        .volunteer-form input[type="text"]:focus,
+        .volunteer-form input[type="email"]:focus,
+        .volunteer-form input[type="tel"]:focus,
+        .volunteer-form textarea:focus {
+            border-color: #3498db; /* Blue */
+            outline: none;
+        }
+        .volunteer-form textarea {
+            resize: vertical;
+            min-height: 120px; /* Adjusted min-height for textarea */
+        }
+
+        /* Checkbox Group Styling */
+        .checkbox-group {
+            margin-bottom: 30px;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            background-color: #fcfcfc;
+        }
+        .checkbox-group h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 10px;
+        }
+        .checkbox-group div {
+            margin-bottom: 10px;
+        }
+        .checkbox-group label {
+            display: inline-block; /* Keep label and checkbox on same line */
+            font-weight: normal; /* Override bold from main label style */
+            cursor: pointer;
+            color: #555;
+            font-size: 1em;
+            margin-left: 5px; /* Space between checkbox and text */
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto; /* Allow checkbox to be its natural size */
+            margin-right: 5px;
+            vertical-align: middle; /* Align checkbox vertically with text */
+        }
+        .checkbox-group input[type="text"].other-interest-input {
+            width: calc(100% - 10px); /* Adjust width for inline display */
+            margin-top: 10px;
+            margin-left: 0;
+            padding: 8px;
+            font-size: 0.95em;
+            border: 1px dashed #ccc; /* Different border for clarity */
+        }
+
+        /* Consent Checkbox */
+        .consent-checkbox {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .consent-checkbox input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+            transform: scale(1.2); /* Slightly larger checkbox */
+        }
+        .consent-checkbox label {
+            display: inline; /* Keep text next to checkbox */
+            font-weight: normal;
+            font-size: 0.95em;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .cta-button {
+            background-color: #27ae60;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: block; /* Make it a block element */
+            width: 100%; /* Make it full width */
+            margin-top: 30px;
+        }
+        .cta-button:hover {
+            background-color: #229954;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            font-size: 0.95em;
+        }
+        footer .social-links a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            font-size: 1.6em;
+            transition: color 0.3s ease;
+        }
+        footer .social-links a:hover {
+            color: #27ae60;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8em;
+            }
+            .container {
+                width: 92%;
+                padding: 25px;
+            }
+            .volunteer-form input[type="text"],
+            .volunteer-form input[type="email"],
+            .volunteer-form input[type="tel"],
+            .volunteer-form textarea,
+            .checkbox-group input[type="text"].other-interest-input {
+                width: calc(100% - 20px); /* Adjust for smaller padding */
+                padding: 10px;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .checkbox-group {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>[NGO Name]</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about-us">About Us</a></li>
+                <li><a href="index.html#impact">Our Impact</a></li>
+                <li><a href="index.html#awareness">Awareness</a></li>
+                <li><a href="index.html#how-to-help">How to Help</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container">
+        <h1>Become a Volunteer</h1>
+        <p class="volunteer-intro">Your time and skills are invaluable to us! Join our dedicated team and directly contribute to creating positive change in our communities. Please fill out the form below, and we'll get in touch soon.</p>
+
+        <form id="volunteer-signup-form">
+            <label for="full-name">Full Name:*</label>
+            <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address:*</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g., +91 98765 43210">
+
+            <div class="checkbox-group">
+                <h3>Preferred Roles / Areas of Interest:*</h3>
+                <p style="font-size: 0.95em; color: #777; margin-bottom: 15px;">Please select all that apply.</p>
+                <div>
+                    <input type="checkbox" id="interest-education" name="interest" value="Education">
+                    <label for="interest-education">Child Education</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="interest-healthcare" name="interest" value="Healthcare">
+                    <label for="interest-healthcare">Healthcare Support</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="interest-environment" name="interest" value="Environment">
+                    <label for="interest-environment">Environmental Initiatives</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="interest-events" name="interest" value="Events">
+                    <label for="interest-events">Event Management & Outreach</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="interest-admin" name="interest" value="Administration">
+                    <label for="interest-admin">Administration & Office Support</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="interest-fundraising" name="interest" value="Fundraising">
+                    <label for="interest-fundraising">Fundraising & Grant Writing</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="interest-other" name="interest" value="Other">
+                    <label for="interest-other">Other:</label>
+                    <input type="text" id="other-interest-text" name="other_interest_text" class="other-interest-input" placeholder="Please specify if 'Other' is selected">
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <h3>Your Availability:*</h3>
+                <p style="font-size: 0.95em; color: #777; margin-bottom: 15px;">Please indicate when you might be available.</p>
+                <div>
+                    <input type="checkbox" id="avail-weekday-morning" name="availability" value="Weekday Morning">
+                    <label for="avail-weekday-morning">Weekdays (Morning)</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="avail-weekday-afternoon" name="availability" value="Weekday Afternoon">
+                    <label for="avail-weekday-afternoon">Weekdays (Afternoon)</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="avail-weekday-evening" name="availability" value="Weekday Evening">
+                    <label for="avail-weekday-evening">Weekdays (Evening)</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="avail-weekend-morning" name="availability" value="Weekend Morning">
+                    <label for="avail-weekend-morning">Weekends (Morning)</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="avail-weekend-afternoon" name="availability" value="Weekend Afternoon">
+                    <label for="avail-weekend-afternoon">Weekends (Afternoon)</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="avail-weekend-evening" name="availability" value="Weekend Evening">
+                    <label for="avail-weekend-evening">Weekends (Evening)</label>
+                </div>
+            </div>
+
+            <label for="skills">Relevant Skills & Experience:</label>
+            <textarea id="skills" name="skills" rows="4" placeholder="Tell us about any skills (e.g., marketing, teaching, first-aid) or experience that might be relevant."></textarea>
+
+            <label for="motivation">Why do you want to volunteer with [NGO Name]?:*</label>
+            <textarea id="motivation" name="motivation" rows="6" placeholder="Share your motivation and what you hope to achieve as a volunteer." required></textarea>
+
+            <div class="consent-checkbox">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">I agree to the <a href="#" style="color: #3498db; text-decoration: none;">Privacy Policy</a> and consent to [NGO Name] collecting and storing my information for volunteer purposes.*</label>
+            </div>
+
+            <button type="submit" class="cta-button" id="volunteer-submit-btn">Submit Application</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Fund Raise. All rights reserved. | <a href="volunteer.html" style="color: white; text-decoration: none;">Volunteer</a> | <a href="index.html#about-us" style="color: white; text-decoration: none;">About Us</a></p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook">FB</a> |
+            <a href="#" aria-label="Twitter">TW</a> |
+            <a href="#" aria-label="LinkedIn">IN</a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('volunteer-signup-form').addEventListener('submit', function(event) {
+            // Check if at least one 'interest' checkbox is checked
+            const interestsChecked = document.querySelectorAll('input[name="interest"]:checked').length;
+            if (interestsChecked === 0) {
+                alert('Please select at least one Area of Interest.');
+                event.preventDefault(); // Stop form submission
+                return;
+            }
+
+            // Check if at least one 'availability' checkbox is checked
+            const availabilityChecked = document.querySelectorAll('input[name="availability"]:checked').length;
+            if (availabilityChecked === 0) {
+                alert('Please select at least one option for your Availability.');
+                event.preventDefault(); // Stop form submission
+                return;
+            }
+
+            // Check if 'Other' interest is selected but text field is empty
+            const otherInterestCheckbox = document.getElementById('interest-other');
+            const otherInterestText = document.getElementById('other-interest-text');
+            if (otherInterestCheckbox.checked && otherInterestText.value.trim() === '') {
+                alert('Please specify your "Other" interest.');
+                event.preventDefault(); // Stop form submission
+                return;
+            }
+
+            event.preventDefault(); // Prevent default form submission if all checks pass
+
+            // In a real application, you would send this form data to a server here.
+            // For this static site, we simulate success and redirect.
+            window.location.href = 'thankyou_volunteer.html'; // Redirect to volunteer thank you page
+        });
+    </script>
+</body>
+</html>
